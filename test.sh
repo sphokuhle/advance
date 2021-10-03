@@ -1,0 +1,1 @@
+mvn -Dtest=io.poker.advance.service.PokerServiceTest test

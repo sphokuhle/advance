@@ -6,8 +6,8 @@ import io.poker.advance.model.Card;
 import io.poker.advance.model.Hand;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 /**
  * @author S'phokuhle on 10/2/2021
  */
-//@RunWith(JUnitPlatform.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class PokerServiceTest {
     private PokerService pokerService;
     private List<Card> cards;

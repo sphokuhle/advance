@@ -144,16 +144,15 @@ public class PokerService {
             isAhighestRanking = true;
         }
 
-
         if(isAhighestRanking) {
-            //Store card A to replace the alphabet with
+            //Store card A to replace the alphabet with a digit
             Card cardA =  cards.stream().filter(c -> c.getRank().equalsIgnoreCase("A")).findAny().get();
             List<Card> tempCards = cards.stream().filter(c -> !c.getRank().equalsIgnoreCase("A")).collect(Collectors.toList());
             cardA.setRank("14");
             tempCards.add(0, cardA);
             int i = 0;
             while(i < tempCards.size()) {
-                //If the next element is within the array bounds we compare.
+                //If the next element is within the array bounds we subtract it from the current element.
                 if(i+1 < cards.size()) {
                     if(convertToLong(cards.get(i+1).getRank()) - convertToLong(cards.get(i).getRank()) != 1
                     && convertToLong(cards.get(i+1).getRank()) - convertToLong(cards.get(i).getRank()) != 0) {
@@ -165,7 +164,7 @@ public class PokerService {
         } else {
             int i = 0;
             while(i < cards.size()) {
-                //If the next element is within the array bounds we subtract.
+                //If the next element is within the array bounds we subtract it from the current element.
                 if(i+1 < cards.size()) {
                     if(convertToLong(cards.get(i).getRank()) - convertToLong(cards.get(i+1).getRank()) != 1
                             && convertToLong(cards.get(i).getRank()) - convertToLong(cards.get(i+1).getRank()) != 0) {
